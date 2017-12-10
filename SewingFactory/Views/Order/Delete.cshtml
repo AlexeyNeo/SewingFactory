@@ -1,0 +1,121 @@
+﻿@model SewingFactory.Models.Order
+
+@{
+    ViewBag.Title = "Удаление заказа";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Вы уверены, что хотите удалить заказ- @Model.Name?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Дата заказа")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Объем")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Дата завершения")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfCompletion)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Линейка размеров")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Цена за еденицу")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Общая сумма заказа")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Выполнено")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Done)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Статус")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Заказчик")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customers.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Модель")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Рабочая группа")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingGroup1.Name)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            <a href="/Order/" class="btn btn-default">Назад </a>
+        </div>
+    }
+</div>

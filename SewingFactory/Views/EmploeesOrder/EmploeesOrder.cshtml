@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SewingFactory.Models.EmploeesOrder>
+
+@{
+    ViewBag.Title = "Реализация заказов";
+}
+<p>
+
+</p>
+<div class="panel panel-default">
+    <div class="panel-heading">Выполнено по заказу</div>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Обработано")
+                </th>
+                <th>
+                    @Html.DisplayName("ФИО")
+                </th>
+                <th>
+                    @Html.DisplayName("Заказ")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Done)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employees.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.Name)
+                    </td>
+                    <td>@Html.ActionLink("Ред.", "Edit", new { id = item.Id })</td>
+                </tr>
+            }
+
+    </table>
+    </div>
+    <a href="/EmploeesOrder/" class="btn btn-default">Назад </a>

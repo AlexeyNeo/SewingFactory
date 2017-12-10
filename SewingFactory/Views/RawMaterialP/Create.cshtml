@@ -1,0 +1,56 @@
+﻿@model SewingFactory.Models.RawMaterialP
+
+@{
+    ViewBag.Title = "Добавить материал";
+}
+
+<h2>Добавить материал, для Модели: @ViewBag.Name</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RawMaterial, "Материал", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RawMaterial", String.Empty)
+                @Html.ValidationMessageFor(model => model.RawMaterial)
+            </div>
+        </div>
+
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                @Html.Hidden("Model")
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity,"Объем",  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quantity)
+                @Html.ValidationMessageFor(model => model.Quantity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Добавить" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+</div>
+<a href="/RawMaterialsIP/Index/@ViewBag.Model" class="btn btn-default">Назад </a>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SewingFactory.Models.SalaryHistory>
+
+@{
+    ViewBag.Title = "Начисления по заказу";
+    double? Sum = 0, Summ=0;
+}
+
+<h2>Начисления по заказу: @ViewBag.Order </h2>
+
+<p>
+
+</p>
+<div class="panel panel-default">
+    <div class="panel-heading">Начисление по заказу</div>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Сумма")
+                </th>
+                <th>
+                    @Html.DisplayName("Дата")
+                </th>
+                <th>
+                    @Html.DisplayName("Выплачено")
+                </th>
+                <th>
+                    @Html.DisplayName("Сотрудник")
+                </th>
+                <th>
+                    @Html.DisplayName("Должность")
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employees.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostOrder1.PostEmploees1.Name)
+                    </td>
+                 <td align="right"><a href="/PaymentHistory/Index/@item.Id">| История выплат |</a></td>
+                </tr>
+                      
+                    {
+                        Sum += item.Payment;
+                        Summ += item.Sum;
+                    }
+
+                
+
+            }
+
+    </table>
+
+</div>
+<h3> Всего начислено: @Summ сом.   Всего выплачено: @Sum сом.</h3>
+<a href="/SalaryHistory/" class="btn btn-default">Назад </a>

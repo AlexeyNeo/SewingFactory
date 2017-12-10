@@ -1,0 +1,80 @@
+﻿@model SewingFactory.Models.RawMaterials
+
+@{
+    ViewBag.Title = "Удаление Материала";
+}
+
+
+
+<h3>Вы уверены, что хотите удалить?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Описание")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ширина")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Длина")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.length)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Кол-во")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Стоимость")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Категория")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatRawMaterials.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            <a href="/RawMaterials/" class="btn btn-default">Назад </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SewingFactory.Models.PaymentHistory>
+
+@{
+    ViewBag.Title = "История выплат зарплаты";
+    double summ = 0;
+}
+
+<h2>@ViewBag.Title</h2>
+
+    <p>
+
+    </p>
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список Выплат по Сотруднику </div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Дата выплаты")
+                </th>
+                <th>
+                    @Html.DisplayName("Сумма")
+
+
+                </th>
+                <th>
+                    @Html.DisplayName("Заказ")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalaryHistory.PostOrder1.Order.Name)
+                </td>
+                @{  summ += item.Sum; }
+
+            </tr>
+
+        }
+
+    </table>
+</div>
+
+        <h3>     И того выплачено:  @summ сом.      </h3>
+   
+
+<a href="/Home/" class="btn btn-default">На главную </a>

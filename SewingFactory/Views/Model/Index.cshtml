@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SewingFactory.Models.Model>
+
+@{
+    ViewBag.Title = "Модели";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="row ">
+        <a class="btn btn-primary" href="/Model/Create">Добавить Модель</a>
+        <a href="/CatModel/Create" class="btn btn-success">Добавить категорию</a>
+    </div>
+</div>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список всех моделей</div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Название")
+                </th>
+                <th>
+                    @Html.DisplayName("Категория")
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CatModel.Name)
+                    </td>
+
+                    <td align="right">
+                        <a href="/RawMaterialP/Index/@item.Id">Управление рецептом</a> |
+                           @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |</td>
+                </tr>
+            }
+    </table>
+</div>
+<a href="/Home/" class="btn btn-default">Назад </a>

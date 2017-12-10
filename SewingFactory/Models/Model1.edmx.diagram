@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07158666551546a29daed90a93e29ae4" Name="Diagram1">
+        <EntityTypeShape EntityType="SewingFactoryModel.Budget" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.CatModel" Width="1.5" PointX="1.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.CatRawMaterials" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.Customers" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.EmploeesOrder" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.Employees" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.HistoryMaterials" Width="1.5" PointX="15.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.Model" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.Order" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.PaymentHistory" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.PostEmploees" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.PostOrder" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.RawMaterialP" Width="1.5" PointX="15.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.RawMaterials" Width="1.5" PointX="13" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.SalaryHistory" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.TranslationHistory" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SewingFactoryModel.WorkingGroup" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Model_CatModel" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_RawMaterials_CatRawMaterials" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Order_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_EmploeesOrder_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_EmploeesOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Employees_PostEmploees" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Employees_WorkingGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_SalaryHistory_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_HistoryMaterials_RawMaterials" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Order_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_RawMaterialP_Model" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_Order_WorkingGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_PostOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_PaymentHistory_SalaryHistory" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_PostOrder_PostEmploees" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_SalaryHistory_PostOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="SewingFactoryModel.FK_RawMaterialP_RowMaterials" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SewingFactory.Models.SalaryHistory>
+
+@{
+    ViewBag.Title = "Выплата ";
+}
+
+<h2>Выплаты зарплат</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Выплаты зарплат</div>
+    <table class="table table-condensed table-hover">
+
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Сотрудник")
+                </th>
+                <th>
+                    @Html.DisplayName("Должность")
+                </th>
+                <th>
+                    @Html.DisplayName("Заказ")
+                </th>
+                <th>
+                    @Html.DisplayName("Выплачено")
+                </th>
+                <th>
+                    @Html.DisplayName("Всего")
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employees.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostOrder1.PostEmploees1.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostOrder1.Order.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sum)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Выплатить", "Create", new { id = item.Id }) |
+                        <a href="/PaymentHistory/Index/@item.Id">история выплат</a>
+                    </td>
+                </tr>
+            }
+
+    </table>
+    </div>
+    <a href="/Home/" class="btn btn-default">Назад </a>

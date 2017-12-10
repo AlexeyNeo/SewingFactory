@@ -1,0 +1,26 @@
+﻿@model SewingFactory.Models.PaymentHistory
+
+@{
+    ViewBag.Title = "Ошибка";
+}
+
+<h2>Ошибка</h2>
+    <div class="form-horizontal">
+        <h4>@ViewBag.Err</h4>
+            </div> 
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+               
+            </div>
+        </div>
+<div>
+    <a href="/Payment/Create/@ViewBag.Id" class="btn btn-default">Назад </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SewingFactory.Models.PostOrder>
+
+@{
+    ViewBag.Title = "З. О";
+}
+
+
+
+<p>
+
+</p>
+<div class="panel panel-default">
+    <div class="panel-heading">Управление З.О по Заказам</div>
+    <table class="table table-condensed table-hover">
+
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayName("Заказ")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Должность")
+                </th>
+                <th>
+                    @Html.DisplayName("Цена за еденицу")
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostEmploees1.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payment)
+
+                </td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<a href="/PostOrder/" class="btn btn-default">Назад </a>

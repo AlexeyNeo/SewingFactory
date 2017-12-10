@@ -1,0 +1,119 @@
+﻿@model IEnumerable<SewingFactory.Models.Order>
+
+@{
+    ViewBag.Title = "Заказы";
+    int? Sum = 0;
+}
+
+<h2>Отчет</h2>
+
+<p>
+   
+
+</p>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список Заказов</div>
+        <form method="post">
+            <input type="date" class="text-box single-line" id="data" name="data">
+            <input type="date" class="text-box single-line" id="data1" name="data1">
+            <input type="submit" value=" Фильтр" class="btn btn-primary btn-xs" />
+
+        </form>
+    
+    
+
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Название
+                        </th>
+                        <!-- <th>
+                             Дата заказа
+                         </th>-->
+                        <th>
+                            Объем
+                        </th>
+
+                        <th>
+                            Размеры
+                        </th>
+                        <th>
+                            Стоимость
+                        </th>
+                        <th>
+                            Сумма
+                        </th>
+                        <th>
+                            Выполнено
+                        </th>
+                        <th>
+                            Статус
+                        </th>
+                        <th>
+                            Заказчик
+                        </th>
+                        <th>
+                            Модель
+                        </th>
+                        <th>
+                            <p> Рабочая группа</p>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <!-- <td>
+                             @Html.DisplayFor(modelItem => item.Date)
+                         </td>-->
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <!-- <td>
+                             @Html.DisplayFor(modelItem => item.DateOfCompletion)
+                         </td>-->
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Size)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Done)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customers.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model1.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkingGroup1.Name)
+                        </td>
+
+                    </tr>
+
+                    if (item.Status == 0)
+                    {
+                        Sum += item.sum;
+                    }
+
+                }
+
+            </table>
+        </div>
+        <h3> Всего доход  от выполненных заказ: @Sum </h3>
+        <a href="/Order/" class="btn btn-default">Назад </a>
+

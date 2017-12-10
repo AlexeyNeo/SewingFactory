@@ -1,0 +1,66 @@
+﻿@model SewingFactory.Models.Employees
+
+@{
+    ViewBag.Title = "Радактировать Профиль";
+}
+
+<h2>Радактировать Профиль сотрудника</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.Label("ФИО", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName)
+                @Html.ValidationMessageFor(model => model.FullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Телефон", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkingGroup, "Рабочая группа", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WorkingGroup", String.Empty)
+                @Html.ValidationMessageFor(model => model.WorkingGroup)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Post, "Должность", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Post", String.Empty)
+                @Html.ValidationMessageFor(model => model.Post)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/Employees/" class="btn btn-default">Назад </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

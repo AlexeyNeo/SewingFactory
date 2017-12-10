@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SewingFactory.Models.PostEmploees>
+
+@{
+    ViewBag.Title = "Должности";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Добавить должность", "Create", "PostEmpl", null, new { @class = "btn btn-primary" })
+</p>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список всех должностей</div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Наименование должности")
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td align="right">
+                        |@Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+
+                    </td>
+                </tr>
+            }
+
+    </table>
+    </div>
+    <a href="/Employees/" class="btn btn-default">Назад </a>

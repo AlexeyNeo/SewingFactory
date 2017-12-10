@@ -1,0 +1,48 @@
+﻿@model SewingFactory.Models.RawMaterialP
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+
+
+<h3>Вы уверены, что хотите удалить материал из модели?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Кол-во")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Модель")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Материал")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawMaterials.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            <a href="/RawMaterialsIP/Index/@ViewBag.Model" class="btn btn-default">Назад </a>
+        </div>
+    }
+</div>

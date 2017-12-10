@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SewingFactory.Models.Order>
+
+@{
+    ViewBag.Title = "История начислений";
+}
+
+<h2>@ViewBag.Title</h2>
+
+   
+
+    <div class="panel panel-default"><div class="panel-heading">Список начислений по заказам</div>
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayName("Заказ")
+                    </th>
+
+                    <th>
+                        @Html.DisplayName("Дата начисления")
+                    </th>
+                    <th>
+                        @Html.DisplayName("рабочая группа")
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.ActionLink(item.Name, "Order", new { id = item.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfCompletion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkingGroup1.Name)
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <a href="/Home/" class="btn btn-default">Назад </a>
+

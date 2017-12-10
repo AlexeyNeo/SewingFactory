@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SewingFactory.Models.Order>
+
+@{
+    ViewBag.Title = "Заказы";
+    int? Sum = 0;
+}
+
+<h2>Заказы</h2>
+
+<p>
+    <a href="/Order/Create" class="btn btn-primary">Добавить заказ </a>
+</p>
+<div class="container">
+    <div class="row ">
+        <a href="/Order/Index/0" class="btn btn-default">Только неактивные заказы</a>
+        <a href="/Order/Index/1" class="btn btn-default">Только активные заказы</a>
+        <a href="/Order/Index/2" class="btn btn-default">Все заказы</a>
+        <a href="/Order/report" class="btn btn-success">Отчеты</a>
+        @Html.ActionLink("Добавить заказчика", "Create", "Customers", null, new { @class = "btn btn-default"})
+    </div>
+</div>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">@ViewBag.order</div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Название
+                </th>
+                <!-- <th>
+                     Дата заказа
+                 </th>-->
+                <th>
+                    Объем
+                </th>
+
+                <th>
+                    Размеры
+                </th>
+               
+                <th>
+                    Сумма
+                </th>
+                <th>
+                    Выполнено
+                </th>
+                <th>
+                    Статус
+                </th>
+                <th>
+                    Заказчик
+                </th>
+                <th>
+                    Модель
+                </th>
+                <th>
+                  Рабочая группа
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)       
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+
+                     </td>
+
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.sum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Done)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customers.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model1.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkingGroup1.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Ред.", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Детали", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+
+            if (item.Status == 0)
+            {
+                Sum += item.sum;
+            }
+
+        }
+
+    </table>
+</div>
+
+    <h3> Всего доход  от выполненных заказ: @Sum </h3>
+<a href="/Home/" class="btn btn-default">Назад </a>

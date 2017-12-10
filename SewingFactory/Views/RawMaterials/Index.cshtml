@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SewingFactory.Models.RawMaterials>
+
+@{
+    ViewBag.Title = "Материалы";
+}
+
+<h2>@ViewBag.Title</h2>
+  <div class="container">
+    <div class="row ">
+        <a class="btn btn-primary" href="/RawMaterials/Create">Добавить Материал</a>
+        <a href="/CatRawMaterials/Create" class="btn btn-success">Добавить категорию</a>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Список всех материалов</div>
+
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Название")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Описание")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Ширина")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Длина")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Кол-во")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Стоимость")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Категория")
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Width)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.length)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Count)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatRawMaterials.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Ред.", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+</table>
+        </div>
+<a href="/Home/" class="btn btn-default">Назад </a>

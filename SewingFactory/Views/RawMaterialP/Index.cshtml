@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SewingFactory.Models.RawMaterialP>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br  />
+<p>
+    <a class="btn btn-primary" href="/RawMaterialP/Create/@ViewBag.Id">Добавить Материал</a>
+</p>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список материалов модели</div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Кол-во")
+                </th>
+                <th>
+                    @Html.DisplayName("Название материала")
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RawMaterials.Name)
+                    </td>
+                    <td align="right">
+                        @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+    </table>
+</div>
+<a href="/Model/" class="btn btn-default">Назад </a>

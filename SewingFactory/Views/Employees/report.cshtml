@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SewingFactory.Models.PaymentHistory>
+
+@{
+    ViewBag.Title = "Отчет выплат сотруднику";
+    double Sum = 0;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Список выплат</div>
+    <form method="post">
+        <input type="date" class="text-box single-line" id="data" name="data">
+        <input type="date" class="text-box single-line" id="data1" name="data1">
+        <input type="submit" value=" Фильтр" class="btn btn-primary btn-xs" />
+
+    </form>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Дата выплаты
+                </th>
+                <th>
+                    Сумма
+                </th>
+                <th>
+                   Заказ
+                </th>
+                
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                     @Html.DisplayFor(modelItem => item.Date)
+                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sum)
+                </td>
+
+                <td>
+                     @Html.DisplayFor(modelItem => item.SalaryHistory.PostOrder1.Order.Name)
+                </td>
+            </tr>
+
+           
+            {
+                Sum += item.Sum;
+            }
+
+        }
+
+    </table>
+</div>
+<h3> Всего выплачено: @Sum </h3>
+<a href="/Employees/" class="btn btn-default">Назад </a>
+

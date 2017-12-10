@@ -1,0 +1,51 @@
+﻿@model SewingFactory.Models.Employees
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Фио")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Телефон")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Должность")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostEmploees.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Рабочая группа")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingGroup1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   <!-- @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |-->
+    <a href="/Employees/" class="btn btn-default">Назад </a>
+
+</p>

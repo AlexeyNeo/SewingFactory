@@ -1,0 +1,42 @@
+﻿@model SewingFactory.Models.PostOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PostOrder</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostEmploees1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostEmploees1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

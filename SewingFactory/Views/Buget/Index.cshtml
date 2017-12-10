@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SewingFactory.Models.Budget>
+
+@{
+    ViewBag.Title = "Бюджет";
+}
+
+<h2>Бюджет</h2>
+
+<p>
+
+</p><a href="/Payment/" class="btn btn-primary">Выплатиты Зарплат  </a>
+<div class="panel panel-default">
+    <div class="panel-heading">Все финансовые средства организации</div>
+    <table class="table table-condensed table-hover">
+       <!-- <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Бюджет")
+                </th>
+                <th></th>
+            </tr>
+            </thead>-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       Всего денег: @Html.DisplayFor(modelItem => item.money) сом.
+                    </td>
+
+                </tr>
+            }
+
+    </table>
+</div>
+<a href="/Home/" class="btn btn-default">Назад </a>
