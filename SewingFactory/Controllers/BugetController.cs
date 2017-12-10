@@ -31,15 +31,11 @@ namespace SewingFactory.Controllers
             return View(budget);
         }
 
-        // GET: /Buget/Create
-        public ActionResult Create()
+     /*   public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /Buget/Create
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,money")] Budget budget)
@@ -68,10 +64,7 @@ namespace SewingFactory.Controllers
             }
             return View(budget);
         }
-
-        // POST: /Buget/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,money")] Budget budget)
