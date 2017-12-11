@@ -74,12 +74,12 @@ namespace SewingFactory.Controllers
          
         
          
-         public ActionResult report(int? date, int? date1)
+         public ActionResult report(int? LeftDate, int? rightDate)
          {
-             if (date != null && date1 != null)
+             if (LeftDate != null && rightDate != null)
              {
-                 var datet = db.Order.Find(date);
-                 var datett = db.Order.Find(date1);
+                 var datet = db.Order.Find(LeftDate);
+                 var datett = db.Order.Find(rightDate);
                  var order = db.Order.Where(o => o.DateOfCompletion >= datet.DateOfCompletion && o.DateOfCompletion <= datett.DateOfCompletion && o.Status == 0);
                  return View(order.ToList());
              }
@@ -90,9 +90,14 @@ namespace SewingFactory.Controllers
              }
          }
         [HttpPost]
-         public ActionResult report(DateTime data, DateTime data1)
-         {
-             var order = db.Order.Where(o => o.DateOfCompletion >= data && o.DateOfCompletion <= data1 && o.Status == 0);
+         public ActionResult report(DateTime? LeftDate, DateTime? rightDate)
+        {
+            if (LeftDate == null && rightDate == null) return HttpNotFound();
+
+            if(LeftDate == null) LeftDate = DateTime.Now;
+            if (rightDate == null) rightDate = DateTime.Now;
+
+            var order = db.Order.Where(o => o.DateOfCompletion >= LeftDate && o.DateOfCompletion <= rightDate && o.Status == 0);
              return View(order.ToList());
              
          }
