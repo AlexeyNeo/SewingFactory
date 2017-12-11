@@ -15,10 +15,7 @@ namespace SewingFactory.Controllers
         {
              ViewBag.Sum=0;
             var paymenthistory = db.PaymentHistory.Include(p => p.SalaryHistory).Where(p => p.SalaryId==id);
-              
              
-            
-                
             return View(paymenthistory.ToList());
         }
 
@@ -44,9 +41,6 @@ namespace SewingFactory.Controllers
             return View();
         }
 
-        // POST: /PaymentHistory/Create
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="Id,SalaryId,Date,Sum")] PaymentHistory paymenthistory)
@@ -78,9 +72,6 @@ namespace SewingFactory.Controllers
             return View(paymenthistory);
         }
 
-        // POST: /PaymentHistory/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="Id,SalaryId,Date,Sum")] PaymentHistory paymenthistory)

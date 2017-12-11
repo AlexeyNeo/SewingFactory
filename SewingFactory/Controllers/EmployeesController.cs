@@ -19,7 +19,7 @@ namespace SewingFactory.Controllers
         }
 
         // GET: /Employees/Details/5
-        public ActionResult report(int Id)
+        public ActionResult Report(int Id)
         {
             ViewBag.Employees = db.Employees.Find(Id);
             var or = db.PaymentHistory.Where(p => p.SalaryHistory.Employees.Id == Id);
@@ -27,13 +27,18 @@ namespace SewingFactory.Controllers
 
         }
         [HttpPost]
-        public ActionResult report(int Id, DateTime data, DateTime data1)
+        public ActionResult report(int id, DateTime? LeftDate, DateTime? rightDate)
         {
-            ViewBag.Employees=db.Employees.Find(Id);
-                var emp = db.PaymentHistory.Include(p => p.SalaryHistory.Employees).Where(p => p.SalaryHistory.Emploees == Id && p.Date >= data && p.Date <= data1);
+            if (LeftDate == null && rightDate == null) return HttpNotFound();
+
+            if (LeftDate == null) LeftDate = DateTime.Now;
+            if (rightDate == null) rightDate = DateTime.Now;
+
+           ViewBag.Employees=db.Employees.Find(id);
+                var emp = db.PaymentHistory.Include(p => p.SalaryHistory.Employees).Where(p => p.SalaryHistory.Emploees == id && p.Date >= LeftDate && p.Date <= rightDate);
                 return View(emp.ToList());
-            
         }
+
         public ActionResult Details(byte? id)
         {
             if (id == null)
