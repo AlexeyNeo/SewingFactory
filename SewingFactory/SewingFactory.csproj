@@ -487,8 +487,6 @@
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\SalaryHistory\Create.cshtml" />
-    <Content Include="Views\SalaryHistory\Delete.cshtml" />
-    <Content Include="Views\SalaryHistory\Details.cshtml" />
     <Content Include="Views\SalaryHistory\Edit.cshtml" />
     <Content Include="Views\SalaryHistory\Index.cshtml" />
     <Content Include="Views\PostOrder\Create.cshtml" />
@@ -527,9 +525,7 @@
     <Content Include="Views\RawMaterialP\Edit.cshtml" />
     <Content Include="Views\RawMaterialP\Index.cshtml" />
     <Content Include="Views\PaymentHistory\Create.cshtml" />
-    <Content Include="Views\PaymentHistory\Delete.cshtml" />
     <Content Include="Views\PaymentHistory\Details.cshtml" />
-    <Content Include="Views\PaymentHistory\Edit.cshtml" />
     <Content Include="Views\PaymentHistory\Index.cshtml" />
     <Content Include="SewingFactoryDataSet1.xsc">
       <DependentUpon>SewingFactoryDataSet1.xsd</DependentUpon>

@@ -5,9 +5,6 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
-   
-
     <div class="panel panel-default"><div class="panel-heading">Список начислений по заказам</div>
         <table class="table table-condensed table-hover">
             <thead>
@@ -30,7 +27,6 @@
             @foreach (var item in Model)
             {
                 <tr>
-
                     <td>
                         @Html.ActionLink(item.Name, "Order", new { id = item.Id })
                     </td>

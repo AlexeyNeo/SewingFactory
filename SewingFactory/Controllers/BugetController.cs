@@ -1,6 +1,4 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Linq;
 using System.Web.Mvc;
 using SewingFactory.Models;
 
@@ -15,11 +13,6 @@ namespace SewingFactory.Controllers
         {
             return View(db.Budget.ToList());
         }
-
-        // GET: /Buget/Details/5
-       
-     
-
 
         protected override void Dispose(bool disposing)
         {

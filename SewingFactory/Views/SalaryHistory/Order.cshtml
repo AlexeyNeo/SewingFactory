@@ -4,11 +4,8 @@
     ViewBag.Title = "Начисления по заказу";
     double? Sum = 0, Summ=0;
 }
-
 <h2>Начисления по заказу: @ViewBag.Order </h2>
-
 <p>
-
 </p>
 <div class="panel panel-default">
     <div class="panel-heading">Начисление по заказу</div>
@@ -60,9 +57,6 @@
                         Sum += item.Payment;
                         Summ += item.Sum;
                     }
-
-                
-
             }
 
     </table>
