@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SewingFactory.Models;
@@ -35,42 +28,6 @@ namespace SewingFactory.Controllers
             return Ok(paymentHistory);
         }
 
-        // PUT: api/PaymentHistories/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutPaymentHistory(int id, PaymentHistory paymentHistory)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != paymentHistory.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(paymentHistory).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PaymentHistoryExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/PaymentHistories
         [ResponseType(typeof(PaymentHistory))]
         public IHttpActionResult PostPaymentHistory(PaymentHistory paymentHistory)
         {
